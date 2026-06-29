@@ -391,10 +391,10 @@ function loadFromHash() {
 async function shareCurrent() {
   const puzzle = currentPuzzle();
   const url = `${location.origin}${location.pathname}#${puzzle.id}`;
-  const text = `我在练这道掼蛋关键局面题：${puzzle.title}`;
+  const text = `我在练这道掼蛋牌局思维题：${puzzle.title}`;
   try {
     if (navigator.share) {
-      await navigator.share({ title: "掼蛋关键局面训练器", text, url });
+      await navigator.share({ title: "掼蛋牌局思维训练", text, url });
     } else {
       await navigator.clipboard.writeText(url);
       showToast("题目链接已复制");
