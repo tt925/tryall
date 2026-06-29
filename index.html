@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>掼蛋关键局面训练器</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">国标掼蛋训练</p>
+          <h1>关键局面训练器</h1>
+        </div>
+        <button class="icon-button" id="shareBtn" type="button" aria-label="分享当前题目" title="分享当前题目">
+          ↗
+        </button>
+      </header>
+
+      <main>
+        <section class="score-strip" aria-label="训练进度">
+          <div>
+            <span id="doneCount">0</span>
+            <small>已练</small>
+          </div>
+          <div>
+            <span id="rightRate">0%</span>
+            <small>正确率</small>
+          </div>
+          <div>
+            <span id="streakCount">0</span>
+            <small>连对</small>
+          </div>
+        </section>
+
+        <nav class="tabs" aria-label="训练类型">
+          <button class="tab active" type="button" data-filter="all">全部</button>
+          <button class="tab" type="button" data-filter="play">出牌</button>
+          <button class="tab" type="button" data-filter="memory">记牌</button>
+          <button class="tab" type="button" data-filter="infer">推理</button>
+          <button class="tab" type="button" data-filter="tribute">进贡</button>
+        </nav>
+
+        <section class="training-board" aria-live="polite">
+          <div class="puzzle-head">
+            <div>
+              <p class="puzzle-tag" id="puzzleType">出牌逻辑</p>
+              <h2 id="puzzleTitle">加载中</h2>
+            </div>
+            <div class="difficulty" id="difficulty">入门</div>
+          </div>
+
+          <div class="table-scene" aria-label="牌桌局势">
+            <div class="seat seat-top" id="seatPartner">对家</div>
+            <div class="seat-row">
+              <div class="seat seat-left" id="seatLeft">上家</div>
+              <div class="center-pot">
+                <small>当前轮次</small>
+                <div id="lastTrick"></div>
+              </div>
+              <div class="seat seat-right" id="seatRight">下家</div>
+            </div>
+            <div class="seat seat-bottom active-seat" id="seatMe">你</div>
+          </div>
+
+          <div class="info-grid">
+            <article>
+              <h3>局面</h3>
+              <p id="scenario"></p>
+            </article>
+            <article>
+              <h3>目标</h3>
+              <p id="goal"></p>
+            </article>
+          </div>
+
+          <section class="cards-panel">
+            <div class="section-title">
+              <h3>你的手牌</h3>
+              <span id="levelInfo"></span>
+            </div>
+            <div class="cards" id="handCards"></div>
+          </section>
+
+          <section class="cards-panel">
+            <div class="section-title">
+              <h3>已知出牌</h3>
+              <span id="memoryHint"></span>
+            </div>
+            <div class="history" id="history"></div>
+          </section>
+
+          <section class="choice-panel">
+            <h3 id="question">你会怎么出？</h3>
+            <div class="choices" id="choices"></div>
+          </section>
+
+          <section class="answer-panel hidden" id="answerPanel">
+            <div class="answer-top">
+              <h3 id="answerTitle">解析</h3>
+              <button class="ghost-button" id="nextBtn" type="button">下一题</button>
+            </div>
+            <p id="answerSummary"></p>
+            <div class="reason-list" id="reasonList"></div>
+            <div class="tip-box" id="tipBox"></div>
+          </section>
+        </section>
+
+        <section class="rule-bank">
+          <div class="section-title">
+            <h2>规则与技巧速记</h2>
+            <button class="ghost-button" id="resetBtn" type="button">重置进度</button>
+          </div>
+          <div class="rule-grid" id="ruleGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
